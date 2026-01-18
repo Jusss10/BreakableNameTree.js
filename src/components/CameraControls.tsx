@@ -1,4 +1,3 @@
-
 import { useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { useControls } from "leva";
@@ -19,12 +18,15 @@ export default function CameraControls({ target = [0, 1, 0] }: CameraControlsPro
 
   useEffect(() => {
     camera.position.set(cameraX, cameraY, cameraZ);
+  }, [cameraX, cameraY, cameraZ, camera]);
+
+  useEffect(() => {
     camera.lookAt(...target);
     if (controlsRef.current) {
       controlsRef.current.target.set(...target);
       controlsRef.current.update();
     }
-  }, [cameraX, cameraY, cameraZ, camera, target]);
+  }, [target, camera]);
 
   return (
     <OrbitControls

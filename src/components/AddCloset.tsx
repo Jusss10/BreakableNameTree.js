@@ -24,6 +24,10 @@ export function AddCloset({height, width, depth, thickness}: ClosetProp) {
         <boxGeometry args={[width, thickness, depth]} />
         <meshStandardMaterial color="#bd519d" />
       </mesh>
+      <mesh position={[0, height / 2, -(depth/2) + thickness/2]} >
+        <boxGeometry args={[width, height - 2 *thickness, thickness]} />
+        <meshStandardMaterial color="#b6c97c" />
+      </mesh>
     </>
   );
 }
