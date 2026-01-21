@@ -31,8 +31,6 @@ export default function CameraControls({ target = [0, 1, 0] }: CameraControlsPro
   return (
     <OrbitControls
       ref={controlsRef}
-      minPolarAngle={0}
-      maxPolarAngle={Math.PI / 2 - 0.1}
       enableZoom={true}
     />
   );
