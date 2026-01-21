@@ -8,6 +8,7 @@ type Props = {
   valueWidth: number;
   setValueHeight: (value: number) => void;
   setValueWidth: (value: number) => void;
+  onAddRuler: () => void;
 };
 
 type SliderComponentProps = {
@@ -42,12 +43,15 @@ export function SliderComponent({ label, value, setValue, min, max, step, unit =
   );
 }
 
-export default function Sidebar({ onAddCabinet, valueHeight, valueWidth, setValueHeight, setValueWidth }: Props) {
+export default function Sidebar({ onAddCabinet, valueHeight, valueWidth, setValueHeight, setValueWidth, onAddRuler }: Props) {
   return (
     <aside className="sidebar">
       <h3>Tools</h3>
       <button type="button" onClick={onAddCabinet}>
-        Add DEF cabinet
+        Add Cabinet
+      </button>
+      <button type="button" onClick={onAddRuler}>
+        Add Ruler
       </button>
       <SliderComponent 
         label="Closet Height"

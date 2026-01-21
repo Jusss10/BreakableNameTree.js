@@ -12,6 +12,7 @@ function App() {
   const [hasCabinet, setHasCabinet] = useState(false);
   const [valueHeight, setValueHeight] = useState<number>(180);
   const [valueWidth, setValueWidth] = useState<number>(80);
+  const [showRuler, setShowRuler] = useState<boolean>(true);
 
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
         valueWidth={valueWidth}
         setValueHeight={setValueHeight}
         setValueWidth={setValueWidth}
+        onAddRuler={() => setShowRuler(true)}
       />
       <Canvas camera={{ position: [2.5, 1.8, 1.7], fov: 75 }}>
         
