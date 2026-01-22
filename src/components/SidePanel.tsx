@@ -3,22 +3,22 @@ import Typography from '@mui/material/Typography';
 import Slider from '@mui/material/Slider';
 
 type Props = {
-  onAddCabinet: () => void;
-  valueHeight: number;
-  valueWidth: number;
-  setValueHeight: (value: number) => void;
-  setValueWidth: (value: number) => void;
-  onAddRuler: () => void;
+  onAddCabinet: () => void
+  valueHeight: number
+  valueWidth: number
+  setValueHeight: (value: number) => void
+  setValueWidth: (value: number) => void
+  onAddRuler: () => void
 };
 
 type SliderComponentProps = {
-  label: string;
-  value: number;
-  setValue: (value: number) => void;
-  min: number;
-  max: number;
-  step: number;
-  unit?: string;
+  label: string
+  value: number
+  setValue: (value: number) => void
+  min: number
+  max: number
+  step: number
+  unit?: string
 };
 
 export function SliderComponent({ label, value, setValue, min, max, step, unit = "cm" }: SliderComponentProps) {
