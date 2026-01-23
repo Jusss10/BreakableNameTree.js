@@ -13,17 +13,22 @@ export default function MainApp() {
   const [showRuler, setShowRuler] = useState<boolean>(true);
 
   return (
-    <>
-      <Leva />
-      <Sidebar
-        onAddCabinet={() => setHasCabinet(true)}
-        valueHeight={valueHeight}
-        valueWidth={valueWidth}
-        setValueHeight={setValueHeight}
-        setValueWidth={setValueWidth}
-        onAddRuler={() => setShowRuler(true)}
-      />
-      <Canvas camera={{ position: [2.5, 1.8, 1.7], fov: 75 }}>
+    <div style={{ 
+      width: '100vw', 
+      height: '100vh', 
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      overflow: 'hidden'
+    }}>
+      <Canvas 
+        camera={{ position: [2.5, 1.8, 1.7], fov: 75 }}
+        style={{ 
+          display: 'block',
+          width: '100%',
+          height: '100%'
+        }}
+      >
         <CameraControls target={hasCabinet ? [0, 0.6, 0] : [0, 0.8, 0]} />
         <BuildRoom />
         {hasCabinet && (
@@ -35,6 +40,15 @@ export default function MainApp() {
           />
         )}
       </Canvas>
-    </>
+      <Leva />
+      <Sidebar
+        onAddCabinet={() => setHasCabinet(true)}
+        valueHeight={valueHeight}
+        valueWidth={valueWidth}
+        setValueHeight={setValueHeight}
+        setValueWidth={setValueWidth}
+        onAddRuler={() => setShowRuler(true)}
+      />
+    </div>
   );
 }

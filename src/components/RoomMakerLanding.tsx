@@ -6,7 +6,7 @@ export default function RoomMakerLanding({onStart} : Props) {
     <>
       <div>RoomMaker Landing Page</div>
       <button type="button" onClick={onStart}>
-        Add Ruler
+       addroom
       </button>
     </>
   );
