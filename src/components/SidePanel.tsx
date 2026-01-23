@@ -1,4 +1,5 @@
 import type { ChangeEvent } from "react";
+import { Button } from "./Reuse/LandingButton";
 
 type Props = {
   onAddCabinet: () => void
@@ -47,20 +48,12 @@ export default function Sidebar({ onAddCabinet, valueHeight, valueWidth, setValu
     <aside className="fixed top-0 left-0 w-64 h-screen p-3 bg-black/90 border-r border-white/10 z-50 text-white">
       <h3 className="text-lg font-semibold mb-4">Tools</h3>
       <div className="flex flex-col gap-2 mb-4">
-        <button 
-          type="button" 
-          onClick={onAddCabinet} 
-          className="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors cursor-pointer border-none"
-        >
+        <Button onClick={onAddCabinet} variant="primary" size="sm">
           Add Cabinet
-        </button>
-        <button 
-          type="button" 
-          onClick={onAddRuler} 
-          className="px-3 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors cursor-pointer border-none"
-        >
+        </Button>
+        <Button onClick={onAddRuler} variant="secondary" size="sm">
           Add Ruler
-        </button>
+        </Button>
       </div>
       <SliderComponent 
         label="Closet Height"
