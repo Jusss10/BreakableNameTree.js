@@ -1,6 +1,4 @@
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Slider from '@mui/material/Slider';
+import type { ChangeEvent } from "react";
 
 type Props = {
   onAddCabinet: () => void
@@ -22,37 +20,48 @@ type SliderComponentProps = {
 };
 
 export function SliderComponent({ label, value, setValue, min, max, step, unit = "cm" }: SliderComponentProps) {
-  const handleChange = (_event: Event, newValue: number) => {
-    setValue(newValue);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(Number(e.target.value));
   };
 
   return (
-    <Box sx={{ width: 200, mb: 2 }}>
-      <Typography gutterBottom>
+    <div className="w-full mb-4">
+      <label className="block text-sm mb-1">
         {label}: {value}{unit}
-      </Typography>
-      <Slider
+      </label>
+      <input
+        type="range"
         value={value}
         min={min}
-        step={step}
         max={max}
+        step={step}
         onChange={handleChange}
-        valueLabelDisplay="auto"
+        className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
       />
-    </Box>
+    </div>
   );
 }
 
 export default function Sidebar({ onAddCabinet, valueHeight, valueWidth, setValueHeight, setValueWidth, onAddRuler }: Props) {
   return (
-    <aside className="sidebar">
-      <h3>Tools</h3>
-      <button type="button" onClick={onAddCabinet}>
-        Add Cabinet
-      </button>
-      <button type="button" onClick={onAddRuler}>
-        Add Ruler
-      </button>
+    <aside className="fixed top-0 left-0 w-64 h-screen p-3 bg-black/90 border-r border-white/10 z-50 text-white">
+      <h3 className="text-lg font-semibold mb-4">Tools</h3>
+      <div className="flex flex-col gap-2 mb-4">
+        <button 
+          type="button" 
+          onClick={onAddCabinet} 
+          className="px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors cursor-pointer border-none"
+        >
+          Add Cabinet
+        </button>
+        <button 
+          type="button" 
+          onClick={onAddRuler} 
+          className="px-3 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors cursor-pointer border-none"
+        >
+          Add Ruler
+        </button>
+      </div>
       <SliderComponent 
         label="Closet Height"
         value={valueHeight}

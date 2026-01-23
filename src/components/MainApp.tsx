@@ -13,7 +13,7 @@ export default function MainApp() {
   const [showRuler, setShowRuler] = useState<boolean>(true);
 
   return (
-    <div id="main-app">
+    <div className="w-screen h-screen fixed top-0 left-0 overflow-hidden">
       <Canvas camera={{ position: [2.5, 1.8, 1.7], fov: 75 }}>
         <CameraControls target={hasCabinet ? [0, 0.6, 0] : [0, 0.8, 0]} />
         <BuildRoom />
