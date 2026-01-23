@@ -1,13 +1,18 @@
 type Props = {
   onStart: () => void;
 };
-export default function RoomMakerLanding({onStart} : Props) {
+export default function RoomMakerLanding({ onStart }: Props) {
   return (
-    <>
-      <div>RoomMaker Landing Page</div>
-      <button type="button" onClick={onStart}>
-       addroom
-      </button>
-    </>
+    <div id="landing">
+        <div>RoomMaker Landing Page</div>
+        <div id="landing-buttons">
+          <button type="button" onClick={onStart}>
+            Add Standaard room
+          </button>
+          <button type="button" onClick={onStart}>
+            Add Custom room
+          </button>
+        </div>
+    </div>
   );
 }
