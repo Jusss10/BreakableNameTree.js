@@ -8,7 +8,7 @@ import {
 import { useFrame, useThree } from "@react-three/fiber";
 import { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
-import { useControls } from "leva";
+import { folder, useControls } from "leva";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 
@@ -19,10 +19,15 @@ export default function Text() {
   const { camera } = useThree();
   const [font, setFont] = useState<any>(null);
 
-  const { cameraX, cameraY, cameraZ } = useControls("Camera", {
-    cameraX: { value: -1.4, min: -10, max: 10, step: 0.1 },
-    cameraY: { value: -0.3, min: -10, max: 10, step: 0.1 },
-    cameraZ: { value: 4.5, min: 1, max: 20, step: 0.1 },
+  const { cameraX, cameraY, cameraZ } = useControls({
+    Camera: folder(
+      {
+        cameraX: { value: -1.4, min: -10, max: 10, step: 0.1 },
+        cameraY: { value: -0.3, min: -10, max: 10, step: 0.1 },
+        cameraZ: { value: 4.5, min: 1, max: 20, step: 0.1 },
+      },
+      { collapsed: true }
+    ),
   });
 
   useEffect(() => {

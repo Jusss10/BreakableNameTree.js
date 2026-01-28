@@ -3,6 +3,7 @@ import { Button } from "./Reuse/LandingButton";
 type Props = {
   onStart: () => void;
 };
+
 export default function RoomMakerLanding({ onStart }: Props) {
   return (
     <div className="w-screen h-screen flex flex-col justify-center items-center gap-4">

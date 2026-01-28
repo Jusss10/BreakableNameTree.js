@@ -1,6 +1,8 @@
 import "./App.css";
 import { Suspense, lazy, useState } from "react";
-import RoomMakerLanding from "./components/RoomMakerLanding";
+import { Leva } from "leva";
+//import RoomMakerLanding from "./components/RoomMakerLanding";
+import LittleTown from "./components/ThreeProject/LittleTown";
 
 const MainApp = lazy(() => import("./components/MainApp"));
 
@@ -9,10 +11,13 @@ function App() {
   return (
     <>
       {!hasStarted ? (
-        <RoomMakerLanding onStart={() => setHasStarted(true)} />
+        <LittleTown onStart={() => setHasStarted(true)} />
       ) : (
         <Suspense fallback={<div>Loading 3D Room...</div>}>
-          <MainApp />
+          <>
+            <MainApp />
+            <Leva collapsed />
+          </>
         </Suspense>
       )}
     </>

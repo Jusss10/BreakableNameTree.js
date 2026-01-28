@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { Leva } from "leva";
 import CameraControls from "./CameraControls";
 import Sidebar from "./SidePanel";
 import { AddCloset } from "./AddCloset";
@@ -26,7 +25,6 @@ export default function MainApp() {
           />
         )}
       </Canvas>
-      <Leva />
       <Sidebar
         onAddCabinet={() => setHasCabinet(true)}
         valueHeight={valueHeight}
